@@ -216,7 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2910e7249bd7ebb40a50d08061d4e707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 2
+  useBullet: 0
   bullet: {fileID: 7836616618321874986, guid: eacef3d33a3451645a740757329a77b8, type: 3}
 --- !u!1 &7499534867656043411
 GameObject:

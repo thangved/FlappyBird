@@ -31,7 +31,7 @@ public class Pipes : MonoBehaviour
 
         if (!useBullet || !hasBullet)
             return;
-        if (transform.position.x < 1f)
+        if (transform.position.x < .5f)
         {
             bulletDirection += Vector3.up * Time.deltaTime * 10;
         }

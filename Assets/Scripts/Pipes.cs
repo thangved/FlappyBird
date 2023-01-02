@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Scripts
 {
@@ -52,5 +54,6 @@ namespace Scripts
         {
             return hasBullet;
         }
+
     }
 }

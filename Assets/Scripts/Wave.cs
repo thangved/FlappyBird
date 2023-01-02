@@ -1,50 +1,47 @@
 using UnityEngine;
 
-namespace Scripts
+public class Wave : MonoBehaviour
 {
-    public class Wave : MonoBehaviour
+    public float strength = 3f;
+    public float maxDistance = 1f;
+
+    private bool _downing;
+    private Vector3 _direction;
+
+    private void Awake()
     {
-        public float strength = 3f;
-        public float maxDistance = 1f;
+        _direction = Vector3.zero;
+    }
 
-        private bool downing;
-        private Vector3 direction;
+    private void Update()
+    {
+        UpdateDowning();
+        UpdateDirection();
+    }
 
-        private void Awake()
+    private void UpdateDowning()
+    {
+        if (_direction.y > maxDistance / 2)
         {
-            direction = Vector3.zero;
+            _downing = true;
+        }
+        if (_direction.y < - maxDistance / 2)
+        {
+            _downing = false;
+        }
+    }
+
+    private void UpdateDirection()
+    {
+        if (_downing)
+        {
+            _direction += Vector3.down * (strength * Time.deltaTime);
+        }
+        else
+        {
+            _direction += Vector3.up * (strength * Time.deltaTime);
         }
 
-        private void Update()
-        {
-            UpdateDowning();
-            UpdateDirection();
-        }
-
-        private void UpdateDowning()
-        {
-            if (direction.y > maxDistance / 2)
-            {
-                downing = true;
-            }
-            if (direction.y < -maxDistance / 2)
-            {
-                downing = false;
-            }
-        }
-
-        private void UpdateDirection()
-        {
-            if (downing)
-            {
-                direction += Vector3.down * (strength * Time.deltaTime);
-            }
-            else
-            {
-                direction += Vector3.up * (strength * Time.deltaTime);
-            }
-
-            transform.position = direction;
-        }
+        transform.position = _direction;
     }
 }

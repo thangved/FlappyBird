@@ -1,31 +1,28 @@
 using UnityEngine;
 
-namespace Scripts
+public class Sprite : MonoBehaviour
 {
-    public class Sprite : MonoBehaviour
+    private SpriteRenderer _spriteRenderer;
+    private int _spriteIndex;
+
+    public UnityEngine.Sprite[] sprites;
+
+    private void Awake()
     {
-        private SpriteRenderer spriteRenderer;
-        private int spriteIndex;
-
-        public UnityEngine.Sprite[] sprites;
-
-        private void Awake()
-        {
-            spriteRenderer = GetComponent<SpriteRenderer>();
-        }
-
-        private void Start()
-        {
-            InvokeRepeating(nameof(AnimateSprite), .15f, .15f);
-        }
-
-        private void AnimateSprite()
-        {
-            spriteIndex++;
-            spriteIndex %= sprites.Length;
-
-            spriteRenderer.sprite = sprites[spriteIndex];
-        }
-
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
+    private void Start()
+    {
+        InvokeRepeating(nameof(AnimateSprite), .15f, .15f);
+    }
+
+    private void AnimateSprite()
+    {
+        _spriteIndex++;
+        _spriteIndex %= sprites.Length;
+
+        _spriteRenderer.sprite = sprites[_spriteIndex];
+    }
+
 }

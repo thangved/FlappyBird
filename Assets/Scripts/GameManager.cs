@@ -11,14 +11,12 @@ public class GameManager : MonoBehaviour
     public Text scoreText;
     public Text highScore;
     public Spawner spawner;
-    public GameObject bullets;
     private Text _text;
 
 
     private void Start()
     {
         _score = 0;
-        _text = bullets.GetComponentInChildren<Text>();
     }
 
     private void Awake()
@@ -26,11 +24,6 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
         gameOver.SetActive(false);
         Pause();
-    }
-
-    private void Update()
-    {
-        UpdateBullets();
     }
 
     private void Pause()
@@ -96,11 +89,5 @@ public class GameManager : MonoBehaviour
     private void HideHighScore()
     {
         highScore.enabled = false;
-    }
-
-    private void UpdateBullets()
-    {
-
-        _text.text = spawner.GetBulletsCount().ToString();
     }
 }

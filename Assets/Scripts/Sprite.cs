@@ -14,7 +14,7 @@ public class Sprite : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(AnimateSprite), .15f, .15f);
+        InvokeRepeating(nameof(AnimateSprite), .05f, .05f);
     }
 
     private void AnimateSprite()
